@@ -1,1 +1,59 @@
+- let figs = [
+- 	{
+- 		id0: '1540968221243-29f5d70540bf', 
+- 		alt: 'graceful yellow and white jellyfish', 
+- 		id1: 'w7WVYjY8c5w',
+- 		usr: 'Karan Karnik'
+- 	}, 
+- 	{
+- 		id0: '1590013330451-3946e83e0392', 
+- 		alt: 'brown jellyfish in blue water', 
+- 		id1: 'GVe30cQ8CWU',
+- 		usr: 'Florian Olivo'
+- 	}, 
+- 	{
+- 		id0: '1589682728270-232844f27822', 
+- 		alt: 'blue and white jellyfish', 
+- 		id1: '6a5n3F2df70',
+- 		usr: 'Taylor Harper'
+- 	}, 
+- 	{
+- 		id0: '1627689777981-f0ff94b4449f', 
+- 		alt: 'blue and brown jellyfish under water', 
+- 		id1: 'ykvkQXX8aT8',
+- 		usr: 'Sean Kiley'
+- 	}, 
+- 	{
+- 		id0: '1573824969595-a76d4365a2e6', 
+- 		alt: 'golden jellyfish in dark waters', 
+- 		id1: 'QqfOPuFhs2o',
+- 		usr: 'Elias Maurer'
+- 	}, 
+- 	{
+- 		id0: '1596135187959-562c650d98bc', 
+- 		alt: 'golden jellyfish in water', 
+- 		id1: 'v-ti3sccORY',
+- 		usr: 'Trae Gould'
+- 	}
+- ];
+- let base = 'unsplash.com/photo';
 
+header
+	h2 Pure CSS 
+		span scroll-triggered 🤯 image
+		|  reveal & zoom
+- figs.forEach(c => {
+	- let url = `https://images.${base}-${c.id0}?w=800`;
+	figure(style=`--url: url(${url})`)
+		img(src=url alt=c.alt)
+		figcaption photo by 
+			a(href=`https://${base}s/${c.id1}` target='_blank') #{c.usr}
+- })
+aside
+	p.box.box--fail.box--view Sorry, it appears your browser does not support 
+		a(href='https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range' target='_blank')
+			code animation-range
+		| , which is necessary for the scroll-triggered transition in this demo demo to work. As of August 2023, this is only supported by Chromium browsers 115+.
+		em (dynamically displayed box based on CSS support test - 
+			a(href='https://codepen.io/thebabydino/full/qBKvjKM' target='_blank') more info
+			| )
